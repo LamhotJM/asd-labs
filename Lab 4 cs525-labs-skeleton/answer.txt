@@ -1,0 +1,15 @@
+a. Explain how the Factory pattern can help here to solve this problem.
+By separating the factory for production and test environment then
+we don't need to modify AccountService and CustomerService.
+
+AccountDAOImplement will be used in production, and MockAccountDAOImplement will be used in test environment.
+ProdAccountDAOFactory will create AccountDAOImplement object while MockAccountDAOFactory will generate MockAccountDAOImplement object
+
+Add an account for test environment
+
+ AccountService accountService = new AccountServiceImpl(new ProdAccountDAOFactory());
+
+Add an account for test environment
+AccountService accountService = new AccountServiceImpl(new MockAccountDAOFactory());
+     
+by Lamhot
